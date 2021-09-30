@@ -14,15 +14,15 @@ X = Data.drop('rate', axis=1)
 Y = Data['rate']
 
 #creating train,test split
-X_train,X_test,Y_train,Y_test = train_test_split(X, Y, random_state=10, test_size=.4)
+X_train,X_test,Y_train,Y_test = train_test_split(X, Y, random_state=10, train_size=.3)
 
 # creating model
-ext = ExtraTreesRegressor(min_samples_leaf=1e-05, n_estimators=300,random_state= 250)
+ext = ExtraTreesRegressor(min_samples_leaf=1e-05, n_estimators=300,random_state= 150)
 ext.fit(X_train,Y_train)
 
 y_pred = ext.predict(X_test)
 print(y_pred)
 
 # generating pickel file
-pickle.dump(ext,open('ExtraTreesregression_model.pkl','wb'))
-model = pickle.load(open('ExtraTreesregression_model.pkl','rb'))
+pickle.dump(ext,open('Trees_model.pkl','wb'))
+model = pickle.load(open('Trees_model.pkl','rb'))
