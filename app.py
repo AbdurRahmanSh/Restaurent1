@@ -5,7 +5,7 @@ import pickle
 app = Flask(__name__)
 model = pickle.load(open('Trees_model.pkl','rb'))
 
-@app.route('/',methods=['GET'])
+@app.route('/home',methods=['GET'])
 def home():
     return render_template('index2.html')
 
