@@ -1,13 +1,13 @@
 import numpy as np
-from flask import Flask,request,jsonify,render_template
+from flask import Flask,request,render_template
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open('ExtraTreesregression_model.pkl','rb'))
+model = pickle.load(open('Trees_model.pkl','rb'))
 
 @app.route('/')
 def home():
-    return render_template('index2.html')
+    return render_template('index.html')
 
 @app.route('/predict',methods=['POST'])
 def predict():
@@ -23,9 +23,9 @@ def predict():
 
         prediction = model.predict([[orderOnline,bookTable,votes,location,restaurantType,cuisiens,cost,menuItems]])
         output = round(prediction[0],1)
-        return render_template('index2.html',prediction_text='Thank you! Your Restaurant rating is {}'.format(output))
+        return render_template('index.html',prediction_text='Thank you! Your Restaurant rating is {}'.format(output))
     else:
-        return render_template('index2.html')
+        return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
