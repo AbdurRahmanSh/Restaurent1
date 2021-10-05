@@ -38,7 +38,7 @@ https://docs.python.org/3/library/venv.html
 
  ## Project Screenshots
 
-![App Screenshot](https://github.com/AbdurRahmanSh/Restaurant_rating/blob/main/rating.gif) 
+![App Screenshot](rating.gif) 
 
 
 ## Credits
